@@ -1,0 +1,32 @@
+# Diretórios de build e arquivos de compilação
+/target/
+/bin/
+
+# Dependências do Maven
+/.m2/
+
+# Arquivos do IntelliJ IDEA
+.idea/
+*.iml
+
+# Arquivos de configuração do IntelliJ
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/tasks.xml
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários de editores de código
+*~
+
+# Arquivos de relatórios de teste
+/target/test-classes/
+/target/test-outputs/
+
+# Resultados de cobertura de testes
+/target/*-coverage*.xml

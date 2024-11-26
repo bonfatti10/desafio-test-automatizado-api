@@ -1,0 +1,42 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Ou a branch que você usa para integrar
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'adoptopenjdk'
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Build and run tests with Maven
+        run: mvn clean test
+
+      - name: Generate Allure Report
+        run: mvn allure:report
+
+      - name: Upload Allure report to GitHub Pages (optional)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: target/site/allure-maven-plugin
+          publish_branch: gh-pages
+          user_name: 'github-actions'
+          user_email: 'github-actions@users.noreply.github.com'

@@ -1,0 +1,1 @@
+{"uuid":"cc5e15ec-881a-4c59-92db-d9638d1f98bd","name":"testCreatePostInvalidData()","children":["7db6a40d-6ea4-40d0-ad92-ef63bc44bb16"],"befores":[{"name":"setup","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1732585984886,"stop":1732585984886}],"afters":[],"start":1732585984882,"stop":1732585985446}
